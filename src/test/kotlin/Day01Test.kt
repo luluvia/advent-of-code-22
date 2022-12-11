@@ -15,5 +15,7 @@ class Day01Test {
     @Test
     fun testPart2() {
         val result = day.part2(input)
+
+        assertEquals(45000, result)
     }
 }
