@@ -2,15 +2,13 @@ class Day01 {
     fun part1(input: List<String>): Int {
         val caloriesList = getCaloriesList(input)
 
-        return caloriesList.max()
+        return caloriesList.maxOrNull() ?: 0
     }
 
     fun part2(input: List<String>): Int {
         val caloriesList = getCaloriesList(input)
 
-        val sum = getTopCalories(caloriesList, 3).sum()
-
-        return sum
+        return getTopCalories(caloriesList, 3).sum()
     }
 
     private fun getCaloriesList(input: List<String>): ArrayList<Int> {
@@ -33,8 +31,8 @@ class Day01 {
     private fun getTopCalories(caloriesList: ArrayList<Int>, top: Int): ArrayList<Int> {
         val topCalories = ArrayList<Int>()
         for (i in 0 until top) {
-            topCalories.add(caloriesList.max())
-            caloriesList.remove(caloriesList.max())
+            topCalories.add(caloriesList.maxOrNull() ?: 0)
+            caloriesList.remove(caloriesList.maxOrNull())
         }
 
         return topCalories
