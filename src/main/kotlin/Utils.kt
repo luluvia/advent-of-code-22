@@ -7,7 +7,13 @@ fun dayFormat(day: Int): String = "Day%02d".format(day)
 /**
  * Reads lines from the given input txt file.
  */
-fun readInput(name: String) = File("inputs/$name.txt")
+fun readInput(name: String) = File("inputs/live/$name.txt")
+    .readLines()
+
+/**
+ * Reads lines from the given input txt test file.
+ */
+fun readTestInput(name: String) = File("inputs/test/$name.txt")
     .readLines()
 
 /**
