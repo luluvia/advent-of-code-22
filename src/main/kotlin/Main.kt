@@ -17,12 +17,23 @@ fun main(args: Array<String>) {
         val input = readInput(day)
         val dayClass = Class.forName(day)
         val dayInstance = dayClass.getConstructor().newInstance()
-        val part1 = dayClass.getMethod("part1", List::class.java).invoke(dayInstance, input)
-        val part2 = dayClass.getMethod("part2", List::class.java).invoke(dayInstance, input)
 
-        println("\uD83C\uDF1F Part 1: $part1")
-        println("\uD83C\uDF1F Part 2: $part2")
+        try {
+            val part1 = dayClass.getMethod("part1", List::class.java).invoke(dayInstance, input)
+            println("\uD83C\uDF1F Part 1: $part1")
+        } catch (e: NoSuchMethodException) {
+            println("\uD83C\uDF1F Part 1: Not implemented")
+        }
+
+        try {
+            val part2 = dayClass.getMethod("part2", List::class.java).invoke(dayInstance, input)
+            println("\uD83C\uDF1F Part 2: $part2")
+        } catch (e: NoSuchMethodException) {
+            println("\uD83D\uDEAB Part 2: Not implemented")
+        }
     } catch (e: FileNotFoundException) {
         println("No input file found for $day")
+    } catch (e: ClassNotFoundException) {
+        println("No class found for $day")
     }
 }
