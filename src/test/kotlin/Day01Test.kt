@@ -3,7 +3,7 @@ import kotlin.test.assertEquals
 
 class Day01Test {
     private val day = Day01()
-    private val input = readInput("Day01_test")
+    private val input = readTestInput("Day01_test")
 
     @Test
     fun testPart1() {
